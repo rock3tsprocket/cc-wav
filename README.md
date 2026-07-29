@@ -10,6 +10,6 @@ ComputerCraft-WAV is a bitmap viewer in ComputerCraft.
 ## How to use
 (Copied from the output of the help command)
 
-Usage: `bmp <PATH TO WAVE FILE>/<--help>/<-h>`
+Usage: `wav <PATH TO WAVE FILE>/<--help>/<-h>`
 
 \<PATH TO WAVE FILE\>: The path to a bitmap file, duh.
