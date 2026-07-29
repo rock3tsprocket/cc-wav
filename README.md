@@ -1,5 +1,5 @@
 # computercraft-wav
-ComputerCraft-WAV is a bitmap viewer in ComputerCraft.
+ComputerCraft-WAV is a WAVE audio player in ComputerCraft.
 
 ## Requirements
 * A computer (any computer will do)
