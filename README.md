@@ -12,7 +12,7 @@ ComputerCraft-WAV is a WAVE audio player in ComputerCraft.
 
 Usage: `wav <PATH TO WAVE FILE>/<--help>/<-h>`
 
-\<PATH TO WAVE FILE\>: The path to a bitmap file, duh.
+\<PATH TO WAVE FILE\>: The path to a WAVE file, duh.
 
 Demo of the audio player playing *Bad Apple!!* from *Touhou Gensokyo ~ Lotus Land Story*
 
