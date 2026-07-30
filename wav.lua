@@ -86,23 +86,32 @@ end
 
 -- Get the size of the data chunk
 data_chunk_size = read_le(wave, pointer, 4)
+pointer = pointer + 4
 
 while pointer < data_chunk_size do
+    sleep(0.05) -- Yield
     buffer = {}
     for i=1,16 * 1024 * 8 do
         sample = read_le(wave, pointer, bytes_per_sample)
-        if bytes_per_sample == 2 then
-            sample = sample / 256
+        pointer = pointer + bytes_per_sample * channels
+        if channels == 2 then
+            sample2 = read_le(wave, pointer, bytes_per_sample)
+            sample = bit32.rshift(sample + sample2, 1) -- Division by two
         end
-        pointer = pointer + bytes_per_sample*2
-        if sample > 127 then
-            sample = sample - 256
+        sample = sample / math.pow(bytes_per_sample, 8)
+        if bytes_per_sample == 1 then
+            if sample > 63 then
+                sample = sample - 128
+            end
+        elseif bytes_per_sample == 2 then
+            if sample > 127 then
+                sample = sample - 256
+            end
         end
         buffer[i] = sample
     end
-    
+
     while not speaker.playAudio(buffer) do
         os.pullEvent("speaker_audio_empty")
     end
 end
-
